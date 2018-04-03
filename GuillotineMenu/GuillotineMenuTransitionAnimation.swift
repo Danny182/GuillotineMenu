@@ -178,7 +178,9 @@ open class GuillotineTransitionAnimation: NSObject {
       angle = radiansToDegrees(asin(rotationTransform.m12))
     }
     let degrees = 90 - abs(angle)
-    containerMenuButton?.layer.transform = CATransform3DRotate(CATransform3DIdentity, degreesToRadians(degrees), 0, 0, 1)
+    if degrees >= 0 {
+            containerMenuButton?.layer.transform = CATransform3DRotate(CATransform3DIdentity, degreesToRadians(degrees), 0, 0, 1)
+    }  
   }
   
   func setupContainerMenuButtonFrameAndTopOffset() {
